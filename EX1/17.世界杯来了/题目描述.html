@@ -1,0 +1,755 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    
+    <meta http-equiv="Expires" CONTENT="0"> 
+    <meta http-equiv="Cache-Control" CONTENT="no-cache"> 
+    <meta http-equiv="Pragma" CONTENT="no-cache"> 
+    <link rel="shortcut icon" href="/images/cgicon.png">
+
+    <TITLE>湖南大学程序设计类课程教学辅助系统</TITLE>
+    <script language="javascript">   
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+                history.pushState(null, null, document.URL);
+        });
+    </script>
+    <!-- Bootstrap core CSS -->
+    <link href="/sv2/css/bootstrap4/bootstrap.min.css" rel="stylesheet">
+    <link href="/sv2/css/bootstrap4/docs.min.css" rel="stylesheet">    
+    
+   
+    <link href="/sv2/css/bootstrap4/fontawesome/css/all.css" rel="stylesheet">
+    <link href="/sv2/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/css/cg_sv2.css" rel="stylesheet">
+    
+    <script src="/sv2/css/bootstrap4/jquery-3.5.1.min.js"></script>
+    <script src="/sv2/css/bootstrap4/popper.min.js"></script>
+    
+    <script src="/sv2/css/bootstrap4/bootstrap.bundle.min.js"></script>
+    <script src="/sv2/css/bootstrap4/docs.min.js"></script>
+
+    <link href="/js/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+    <script src="/js/bootstrap/bootstrap-select.min.js"></script>
+  </head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light get-navbar-height" style="background-color: #e3f2fd;">
+    
+    <a class="navbar-brand" href="/index.jsp"> <img src="/userfiles/skin/logo.png" border="0" height="25"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=0">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-1">课程信息</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-2">在线作业</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-3">在线考试</a>
+            </li>  
+            
+            
+                
+            
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-4">在线答疑</a>
+            </li>    
+            
+            
+                      
+
+                     
+            
+                                   
+
+        </ul>
+       
+        <form class="form-inline my-2 my-lg-0" name="courseForm" method="post" action="">
+            
+            
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <i class="fas fa-user"></i> 周旭航
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">
+                      <a class="dropdown-item" href="/includes/redirect.jsp?tab=-6"><i class="far fa-user"></i>个人信息</a>
+                    <a class="dropdown-item" href="/login/loginproc.jsp?logout=true"><i class="fas fa-sign-out-alt"></i> 注销</a>
+
+                    </div>
+                </li>
+                <!--
+                <li class="nav-item active">
+                    <a class="nav-link" href="help.jsp" target="_blank"><i class="fas fa-question-circle"></i> 帮助</a>
+                </li>
+                -->
+            </ul>
+            <label for="doChangeCourse" class="sr-only">切换课程</label>
+
+            <input type="hidden" name="doChangeCourse" value="true">
+            <select class="form-control" name="changeCourse" onchange="document.courseForm.submit()">
+              
+              <option value="43" >程序设计2021</option>
+              
+              <option value="47" >数据结构与算法(2022年)</option>
+              
+              <option value="52" selected>程序设计训练2022</option>
+                    
+            </select>
+            
+            <ul class="navbar-nav mr-auto">
+                
+                
+                <li> <a class="nav-link" href="/sv2/indexexp/contest/index.jsp?my=true&contestCID=52"><i class="fas fa-medal text-danger"></i> 比赛</a></li>
+                
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/acm/index.jsp" target="_blank"><i class="fas fa-code text-danger"></i> OnlineJudge</a>                    
+                </li>
+                
+                
+                    
+                
+               
+               
+                    <a class="nav-link" href="/graduation/index.jsp"><i class="fa fa-user-graduate text-danger"></i> 毕业设计</a>  
+                
+               
+                
+            </ul>
+            
+        </form>
+  </div>
+</nav>
+  
+
+
+
+
+
+<SCRIPT language="JavaScript" src="/includes/common.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="/includes/judgeutils.js"></SCRIPT>
+<div class="container-fluid">
+    <div class="row mr-2 ml-1 mt-3">
+        
+        <div class="col-2">
+           
+
+
+
+
+            <h6 class="d-flex justify-content-between align-items-center">
+                <span class="text-muted"><strong><i class="far fa-clock"></i> 当前作业</strong></span>
+                
+            </h6>
+            <div class="list-group list-group-flush mb-4">
+                
+                
+                  
+                        <a href="index.jsp?courseID=52&assignID=802" class="list-group-item list-group-item-action">
+                            <i class="fas fa-angle-double-right"></i> 作业训练五
+                            
+                        </a>
+                            
+                        
+                  
+                  
+                        <a href="index.jsp?courseID=52&assignID=798" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-angle-double-right"></i> 作业训练一
+                            
+                        </a>
+                            
+                        
+                  
+            </div>
+
+
+            <h6 class="d-flex justify-content-between align-items-center">
+                <span class="text-muted"><strong><i class="fas fa-history"></i> 历史作业</strong></span>                
+            </h6>
+            <div class="list-group list-group-flush">
+                
+                
+            </div>
+            
+      
+              
+        </div>
+        <div class="col-10">
+              
+          
+     
+            
+       
+            
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination flex-wrap">
+                        
+                        <li class="page-item"><a class="page-link" href="index.jsp?assignID=798#An_Program">
+                                <i class="fas fa-arrow-alt-circle-left"></i> 返回编程题列表</a>
+                        </li>
+                        
+
+                      
+                        <li class="page-item">
+                          <a class="page-link" href="programList.jsp?proNum=16&courseID=52&assignID=798&libCenter=false" aria-label="Previous" title="前一道">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                       
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=1&courseID=52&assignID=798&libCenter=false">1</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=2&courseID=52&assignID=798&libCenter=false">2</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=3&courseID=52&assignID=798&libCenter=false">3</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=4&courseID=52&assignID=798&libCenter=false">4</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=5&courseID=52&assignID=798&libCenter=false">5</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=6&courseID=52&assignID=798&libCenter=false">6</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=7&courseID=52&assignID=798&libCenter=false">7</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=8&courseID=52&assignID=798&libCenter=false">8</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=9&courseID=52&assignID=798&libCenter=false">9</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=10&courseID=52&assignID=798&libCenter=false">10</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=11&courseID=52&assignID=798&libCenter=false">11</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=12&courseID=52&assignID=798&libCenter=false">12</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=13&courseID=52&assignID=798&libCenter=false">13</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=14&courseID=52&assignID=798&libCenter=false">14</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=15&courseID=52&assignID=798&libCenter=false">15</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=16&courseID=52&assignID=798&libCenter=false">16</a></li>
+
+                       
+                        <li class="page-item active"><a class="page-link" href="programList.jsp?proNum=17&courseID=52&assignID=798&libCenter=false">17</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=18&courseID=52&assignID=798&libCenter=false">18</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=19&courseID=52&assignID=798&libCenter=false">19</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=20&courseID=52&assignID=798&libCenter=false">20</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=21&courseID=52&assignID=798&libCenter=false">21</a></li>
+
+                       
+
+                      
+                        <li class="page-item">
+                          <a class="page-link" href="programList.jsp?proNum=18&courseID=52&assignID=798&libCenter=false" aria-label="Next" title="下一道">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                </nav>
+         
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.jsp?assignID=798">作业训练一</a></li>
+                      <li class="breadcrumb-item"><a href="index.jsp?assignID=798#An_Program">编程题</a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><b>17.</b> 世界杯来了</li>
+                    </ol>
+                </nav>
+               
+                <p>【问题描述】</p><p>&nbsp; &nbsp; &nbsp; &nbsp;2018年俄罗斯世界杯结束了，法国获得冠军，全世界球迷度过了一个非常愉快的夏天。作为中国球迷，不能总是看别人踢球，这不福利来了，根据FIFA（国际足联）及全体成员协会的一致决定，2118年世界杯将在中国举办，作为东道主，中国队将无需参加预选赛而直接参加决赛阶段的比赛。</p><p>&nbsp;&nbsp; 比赛规则如下：<br/></p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p>总共n（n为偶数）个球队参加比赛</p></li><li><p>按照分组赛积分排名，前n/2的球队进入淘汰赛</p></li><li><p>积分排名的规则如下：球队获胜得3分，平局得1分，失利得0分，按照积分递减、净胜球递减以及进球数递减方式排名</p><p>编写一个程序，根据给出的参赛队伍名单和所有比赛的结果，找出成功进入淘汰赛阶段的球队名单。</p></li></ul><p>【输入形式】<br/></p><p>&nbsp; &nbsp; &nbsp; &nbsp;第一行输入包含唯一整数n(1&lt;=n&lt;=50)，参加世界杯决赛的球队数量。接下来的n行是各球队的名字，为长度不超过30个字符的英文字符。接下来的n*(n-1)/2行，每行格式name1-name2 num1:num2（0&lt;=num1, num2&lt;=100），表示对阵球队及比分.&nbsp;</p><p>【输出形式】</p><p>&nbsp; &nbsp; &nbsp; &nbsp;输入n/2行，表示进入淘汰赛阶段的球队，按照字典序进行排列，每个球队名字占一行。<br/>【样例输入】</p><p><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">4</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">A</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">B</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">C</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">D</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">A-B 1:1</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">A-C 2:2</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">A-D 1:0</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">B-C 1:0</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">B-D 0:3</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">C-D 0:3</span></p><p>【样例输出】</p><p><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">A</span><br style="color: rgb(136, 0, 0); font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; margin: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;"/><span style="background-color: #EFEFEF; color: #880000; font-family: Consolas, &quot;Lucida Console&quot;, &quot;Andale Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier; font-size: 12.6px; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 15.75px; white-space: pre-wrap; word-wrap: break-word;">D</span></p><p>【样例说明】<br/>【评分标准】</p>    
+           
+                <hr>
+               
+						
+                
+
+                <SCRIPT type="text/javascript" language="javascript">
+                var datenow = new Date();
+                var submitStartTime = datenow.getTime();
+
+                function filesubmit() {	
+
+                        var boolSelected=false;
+                        var sValue="";
+                        var mainClass="";
+                        var appendUrl="";
+                        var uAction="";
+                        var programLan="c";
+
+                        var filename = document.upload.FILE1.value;
+
+                        if(filename.length<1) {
+                                alert("请输入要提交的文件!");
+                                return false;
+                        }   
+
+                        
+
+                            var maxFileSize = 8388608;
+                            var uploadFileObj = document.getElementById("CGFILE").files[0];
+
+                            if(uploadFileObj.size > maxFileSize) {
+                                alert("上传的源文件大小不能超过 8192 KB !" );
+                                return false;
+                            }
+                       
+
+                        document.upload.action = "showProcessMsg.jsp?problemID=13023&assignID=798&doSubmit=true&progLanguage=c";
+
+                        
+
+
+                        
+                                for (var i=0; i<document.lanparamFORM.progLanguage.options.length; ++i){
+                                        if (document.lanparamFORM.progLanguage.options[i].selected){
+                                                sValue=document.lanparamFORM.progLanguage.options[i].text;
+                                        boolSelected= true;
+
+                                        appendUrl="progLanguage="+ encodeURIComponent(sValue);
+                                        break;
+                                }		
+                                }
+                                programLan=sValue;
+                                if(sValue=="java"){
+                                        mainClass=document.lanparamFORM.javaMainCLass.value;
+                                        if(mainClass==""){
+                                                alert("请填写主类名");
+                                                return false;
+                                        }else{
+                                                appendUrl=appendUrl+"&javaMainCLass="+mainClass;
+                                        }
+
+                                }
+
+                                if(!boolSelected){    			
+                                        alert("请选择编程语言");
+                                        return false;
+                                }
+
+                                document.upload.action="showProcessMsg.jsp?problemID=13023&assignID=798&doSubmit=true&"+appendUrl;
+
+                        
+
+                        var fileExtentRegxs = new Array();
+                        
+                        fileExtentRegxs['nasm-64-libc']=['.asm'];
+                        
+                        fileExtentRegxs['nasm-64']=['.asm'];
+                        
+                        fileExtentRegxs['clang++']=['.cpp','.cc','.C','.cxx','.CPP','.zip','.rar'];
+                        
+                        fileExtentRegxs['c']=['.c','.zip','.rar'];
+                        
+                        fileExtentRegxs['gnuPascal']=['.pas','.zip','.rar'];
+                        
+                        fileExtentRegxs['freePascal']=['.pas','.pp','.zip','.rar'];
+                        
+                        fileExtentRegxs['nasm-32-libc']=['.asm'];
+                        
+                        fileExtentRegxs['scala']=['.scala'];
+                        
+                        fileExtentRegxs['python']=['.py','.zip','.rar'];
+                        
+                        fileExtentRegxs['mars']=['.asm'];
+                        
+                        fileExtentRegxs['ise']=['.zip','.v'];
+                        
+                        fileExtentRegxs['mpicxx']=['.cpp','.cc','.C','.cxx','.zip','.rar'];
+                        
+                        fileExtentRegxs['r']=['.R'];
+                        
+                        fileExtentRegxs['logisim']=['.circ'];
+                        
+                        fileExtentRegxs['c++']=['.cpp','.cc','.C','.cxx','.CPP','.zip','.rar'];
+                        
+                        fileExtentRegxs['fortran95']=['.f','.for','.FOR','.F','.fpp','.FPP','.zip','.rar'];
+                        
+                        fileExtentRegxs['clang']=['.c','.zip','.rar'];
+                        
+                        fileExtentRegxs['c#']=['.cs','.zip','.rar'];
+                        
+                        fileExtentRegxs['java']=['.java','.zip','.rar'];
+                        
+                        fileExtentRegxs['matlab']=['.m'];
+                        
+                        fileExtentRegxs['mpicc']=['.c','.zip','.rar'];
+                        
+                        fileExtentRegxs['nasm-32']=['.asm'];
+                        
+                        fileExtentRegxs['fortran77']=['.f','.for','.FOR','.F','.fpp','.FPP','.zip','.rar'];
+                        
+                        fileExtentRegxs['go']=['.go'];
+                    
+
+                        var fileExtents = new Array();
+                        
+                        fileExtents['nasm-64-libc']=".asm";
+                        
+                        fileExtents['nasm-64']=".asm";
+                        
+                        fileExtents['clang++']=".cpp， .cc， .C， .cxx， .CPP";
+                        
+                        fileExtents['yaml']=".yaml";
+                        
+                        fileExtents['c']=".c";
+                        
+                        fileExtents['gnuPascal']=".pas";
+                        
+                        fileExtents['freePascal']=".pas， .pp";
+                        
+                        fileExtents['git']=".gitproj";
+                        
+                        fileExtents['nasm-32-libc']=".asm";
+                        
+                        fileExtents['scala']=".scala";
+                        
+                        fileExtents['python']=".py";
+                        
+                        fileExtents['mars']=".asm";
+                        
+                        fileExtents['ise']=".zip， .v";
+                        
+                        fileExtents['mpicxx']=".cpp， .cc， .C， .cxx";
+                        
+                        fileExtents['r']=".R";
+                        
+                        fileExtents['logisim']=".circ";
+                        
+                        fileExtents['c++']=".cpp， .cc， .C， .cxx， .CPP";
+                        
+                        fileExtents['fortran95']=".f， .for， .FOR， .F， .fpp， .FPP";
+                        
+                        fileExtents['gitlab']=".zip";
+                        
+                        fileExtents['clang']=".c";
+                        
+                        fileExtents['c#']=".cs";
+                        
+                        fileExtents['java']=".java";
+                        
+                        fileExtents['matlab']=".m";
+                        
+                        fileExtents['mpicc']=".c";
+                        
+                        fileExtents['nasm-32']=".asm";
+                        
+                        fileExtents['fortran77']=".f， .for， .FOR， .F， .fpp， .FPP";
+                        
+                        fileExtents['go']=".go";
+                    
+
+                        if(!CGHasExtension(filename, fileExtentRegxs[programLan])) {
+                            alert("文件格式不对，源文件后缀仅限于：" + fileExtents[programLan]);
+                            return false;
+                        }   
+
+                        var now = new Date();       
+                        var submitTimeSpent = Math.floor((now.getTime() - submitStartTime) / 1000);        
+                        submitStartTime = now.getTime();
+                        var requestString = document.upload.action;               
+                        document.upload.action = requestString + "&wtime=" + submitTimeSpent;   
+
+                        document.getElementById("Submit").disabled=true;
+                        document.getElementById("Submit").value="正在处理...";
+
+                        cgShowProcessLoading('showmessageFrame');
+                        return true;
+                }
+
+                function mainClassInput() {
+                    var sValue="";
+                    for (var i=0; i<document.lanparamFORM.progLanguage.options.length; ++i){
+                                    if (document.lanparamFORM.progLanguage.options[i].selected){
+                                    sValue=document.lanparamFORM.progLanguage.options[i].text;
+                                    break;
+                            }
+                    }
+
+                    if(sValue=="java"){
+                            document.getElementById('mainclassObj').style.display='inline';
+                    }else{
+                            document.getElementById('mainclassObj').style.display='none';
+                    }
+                }
+                </SCRIPT>
+						
+                <form class="form-inline mb-3" name="lanparamFORM" method="get">
+                   
+                                                 
+                          
+                            <label for="languages" class="mr-2">编程语言</label>
+
+                            <select class="form-control" name="progLanguage" id="languages" onchange="mainClassInput();">
+                             
+                                     <option value=c>c</option>
+                             
+                                     <option value=c++>c++</option>
+                             
+                                     <option value=java>java</option>
+                             
+                                     <option value=python>python</option>
+                             
+                             </select>                               
+                               
+                        
+
+                           
+                        <div style="display:none;" id="mainclassObj">  
+                            <div class="input-group ml-2">
+                                
+                                <input type="text" class="form-control" id="javamanclass" placeholder="填写主类名" name="javaMainCLass" value="">
+                                <div class="input-group-append">
+                                  <div class="input-group-text">如果带有包名，格式为：<kbd>包名.主类名</kbd> <a href="/help/javamainclass.jsp" class="ml-1" target="_blank">查看帮助</a></div>
+                                </div>                           
+                            </div>
+                        </div>                              
+               
+                </form>   
+                                
+                <form class="form-inline" name="upload" onsubmit="return filesubmit();" method="post" enctype="multipart/form-data" target="showmessage" action="">
+                     <div class="form-group">
+                         <label for="CGFILE" class="my-1 mr-3">提交源文件</label>
+                         <input type="file" name="FILE1" id="CGFILE" required>
+                         <input  id="Submit" type="submit" name="Submit" class="btn btn-success btn-sm" value="提 交">     
+                     </div>   
+                </form>
+                 <small id="emailHelp" class="form-text text-muted">                        
+                    
+                    如果有多个源文件，压缩成 <code>rar 或者 zip </code>包提交。如果用Python多源文件，包内必须包含<code>__main__.py</code>文件。                     
+                 </small>           
+                            
+                <div class="card">
+                    <div class="card-header">
+                      运行结果
+                    </div>
+                    <div class="card-body">
+                        
+                        <IFRAME id="showmessageFrame" name="showmessage" src="showProcessMsg.jsp?problemID=13023&assignID=798" frameBorder="0" height="350" marginHeight="0" marginWidth="0" width="100%"></IFRAME>
+                    </div>
+                </div>     
+                   
+                    
+                    
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination flex-wrap">
+                        
+                        <li class="page-item"><a class="page-link" href="index.jsp?assignID=798#An_Program">
+                                <i class="fas fa-arrow-alt-circle-left"></i> 返回编程题列表</a>
+                        </li>
+                        
+
+                      
+                        <li class="page-item">
+                          <a class="page-link" href="programList.jsp?proNum=16&courseID=52&assignID=798&libCenter=false" aria-label="Previous" title="前一道">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                       
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=1&courseID=52&assignID=798&libCenter=false">1</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=2&courseID=52&assignID=798&libCenter=false">2</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=3&courseID=52&assignID=798&libCenter=false">3</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=4&courseID=52&assignID=798&libCenter=false">4</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=5&courseID=52&assignID=798&libCenter=false">5</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=6&courseID=52&assignID=798&libCenter=false">6</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=7&courseID=52&assignID=798&libCenter=false">7</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=8&courseID=52&assignID=798&libCenter=false">8</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=9&courseID=52&assignID=798&libCenter=false">9</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=10&courseID=52&assignID=798&libCenter=false">10</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=11&courseID=52&assignID=798&libCenter=false">11</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=12&courseID=52&assignID=798&libCenter=false">12</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=13&courseID=52&assignID=798&libCenter=false">13</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=14&courseID=52&assignID=798&libCenter=false">14</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=15&courseID=52&assignID=798&libCenter=false">15</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=16&courseID=52&assignID=798&libCenter=false">16</a></li>
+
+                       
+                        <li class="page-item active"><a class="page-link" href="programList.jsp?proNum=17&courseID=52&assignID=798&libCenter=false">17</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=18&courseID=52&assignID=798&libCenter=false">18</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=19&courseID=52&assignID=798&libCenter=false">19</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=20&courseID=52&assignID=798&libCenter=false">20</a></li>
+
+                       
+                        <li class="page-item"><a class="page-link" href="programList.jsp?proNum=21&courseID=52&assignID=798&libCenter=false">21</a></li>
+
+                       
+
+                      
+                        <li class="page-item">
+                          <a class="page-link" href="programList.jsp?proNum=18&courseID=52&assignID=798&libCenter=false" aria-label="Next" title="下一道">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                </nav>
+                    
+                
+
+
+
+  
+                  
+       
+
+            
+        </div>
+    </div>
+</div>
+
+
+        
+     
+   
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <IFRAME src="/includes/stayalive.jsp"  frameBorder=0 height=0 marginHeight=0 marginWidth=0 width=0></IFRAME>
+    
+    <footer id="cgfooter" style="min-height: 70px; width: 100%; padding: 15px;position: relative;bottom: 0;" class="bg-light mt-5">
+      <div class="container text-center">
+       
+              <p>课程学习系统</p>
+      </div>
+    </footer>
+    
+    
+  
+  
+
+
+ </body>
+</html>
