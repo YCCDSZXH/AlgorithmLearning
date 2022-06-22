@@ -1,6 +1,17 @@
 {
   "files.associations": {
+    "istream": "cpp",
+    "string": "cpp",
     "iostream": "cpp",
-    "ostream": "cpp"
+    "algorithm": "cpp",
+    "sstream": "cpp",
+    "iosfwd": "cpp",
+    "iomanip": "cpp",
+    "string_view": "cpp",
+    "vector": "cpp"
   }
+  // "files.associations": {
+  //   "iostream": "cpp",
+  //   "ostream": "cpp"
+  // }
 }
