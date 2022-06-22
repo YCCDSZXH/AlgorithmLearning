@@ -8,7 +8,9 @@
     "iosfwd": "cpp",
     "iomanip": "cpp",
     "string_view": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "map": "cpp",
+    "ostream": "cpp"
   }
   // "files.associations": {
   //   "iostream": "cpp",
