@@ -10,7 +10,8 @@
     "string_view": "cpp",
     "vector": "cpp",
     "map": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "utility": "cpp"
   }
   // "files.associations": {
   //   "iostream": "cpp",
