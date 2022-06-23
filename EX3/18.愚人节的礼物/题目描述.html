@@ -1,0 +1,688 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    
+    <meta http-equiv="Expires" CONTENT="0"> 
+    <meta http-equiv="Cache-Control" CONTENT="no-cache"> 
+    <meta http-equiv="Pragma" CONTENT="no-cache"> 
+    <link rel="shortcut icon" href="/images/cgicon.png">
+
+    <TITLE>湖南大学程序设计类课程教学辅助系统</TITLE>
+    <script language="javascript">   
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+                history.pushState(null, null, document.URL);
+        });
+    </script>
+    <!-- Bootstrap core CSS -->
+    <link href="/sv2/css/bootstrap4/bootstrap.min.css" rel="stylesheet">
+    <link href="/sv2/css/bootstrap4/docs.min.css" rel="stylesheet">    
+    
+   
+    <link href="/sv2/css/bootstrap4/fontawesome/css/all.css" rel="stylesheet">
+    <link href="/sv2/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/css/cg_sv2.css" rel="stylesheet">
+    
+    <script src="/sv2/css/bootstrap4/jquery-3.5.1.min.js"></script>
+    <script src="/sv2/css/bootstrap4/popper.min.js"></script>
+    
+    <script src="/sv2/css/bootstrap4/bootstrap.bundle.min.js"></script>
+    <script src="/sv2/css/bootstrap4/docs.min.js"></script>
+
+    <link href="/js/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+    <script src="/js/bootstrap/bootstrap-select.min.js"></script>
+  </head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light get-navbar-height" style="background-color: #e3f2fd;">
+    
+    <a class="navbar-brand" href="/index.jsp"> <img src="/userfiles/skin/logo.png" border="0" height="25"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=0">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-1">课程信息</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-2">在线作业</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-3">在线考试</a>
+            </li>  
+            
+            
+                
+            
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/includes/redirect.jsp?tab=-4">在线答疑</a>
+            </li>    
+            
+            
+                      
+
+                     
+            
+                                   
+
+        </ul>
+       
+        <form class="form-inline my-2 my-lg-0" name="courseForm" method="post" action="">
+            
+            
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <i class="fas fa-user"></i> 周旭航
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">
+                      <a class="dropdown-item" href="/includes/redirect.jsp?tab=-6"><i class="far fa-user"></i>个人信息</a>
+                    <a class="dropdown-item" href="/login/loginproc.jsp?logout=true"><i class="fas fa-sign-out-alt"></i> 注销</a>
+
+                    </div>
+                </li>
+                <!--
+                <li class="nav-item active">
+                    <a class="nav-link" href="help.jsp" target="_blank"><i class="fas fa-question-circle"></i> 帮助</a>
+                </li>
+                -->
+            </ul>
+            <label for="doChangeCourse" class="sr-only">切换课程</label>
+
+            <input type="hidden" name="doChangeCourse" value="true">
+            <select class="form-control" name="changeCourse" onchange="document.courseForm.submit()">
+              
+              <option value="43" >程序设计2021</option>
+              
+              <option value="47" >数据结构与算法(2022年)</option>
+              
+              <option value="52" selected>程序设计训练2022</option>
+                    
+            </select>
+            
+            <ul class="navbar-nav mr-auto">
+                
+                
+                <li> <a class="nav-link" href="/sv2/indexexp/contest/index.jsp?my=true&contestCID=52"><i class="fas fa-medal text-danger"></i> 比赛</a></li>
+                
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/acm/index.jsp" target="_blank"><i class="fas fa-code text-danger"></i> OnlineJudge</a>                    
+                </li>
+                
+                
+                    
+                
+               
+               
+                    <a class="nav-link" href="/graduation/index.jsp"><i class="fa fa-user-graduate text-danger"></i> 毕业设计</a>  
+                
+               
+                
+            </ul>
+            
+        </form>
+  </div>
+</nav>
+  
+
+
+
+
+
+
+<SCRIPT language="JavaScript" src="/includes/judgeutils.js"></SCRIPT>
+
+
+<link rel="stylesheet" href="/third/codeeditor/main.css">
+<script src="/third/codeeditor/JavaScript/mousemove.js"></script>
+<script src="/third/codeeditor/JavaScript/tabheaderRow.js"></script>
+
+
+<script src="/sv2/third/codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="/sv2/third/codemirror/lib/codemirror.css">
+
+<script src="/sv2/third/codemirror/mode/clike/clike.js"></script>
+<script src="/sv2/third/codemirror/mode/python/python.js"></script>
+<script src="/sv2/third/codemirror/mode/verilog/verilog.js"></script>
+<script src="/sv2/third/codemirror/mode/octave/octave.js"></script>
+<script src="/sv2/third/codemirror/mode/gas/gas.js"></script>
+<script src="/sv2/third/codemirror/mode/javascript/javascript.js"></script>
+<script src="/sv2/third/codemirror/mode/sql/sql.js"></script>
+<script src="/sv2/third/codemirror/mode/go/go.js"></script>
+<script src="/sv2/third/codemirror/mode/go/go.js"></script>
+<script src="/sv2/third/codemirror/mode/r/r.js"></script>
+<script src="/sv2/third/codemirror/mode/shell/shell.js"></script>
+<script src="/sv2/third/codemirror/mode/verilog/verilog.js"></script>
+<script src="/sv2/third/codemirror/mode/vhdl/vhdl.js"></script>
+
+
+<link rel="stylesheet" href="/sv2/third/codemirror/addon/hint/show-hint.css" />
+<script src="/sv2/third/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="/sv2/third/codemirror/addon/hint/show-hint.js"></script>
+<script src="/sv2/third/codemirror/addon/hint/anyword-hint.js"></script>
+
+<script src="/sv2/third/codemirror/addon/mode/simple.js"></script>
+<script src="/sv2/third/codemirror/mode/dockerfile/dockerfile.js"></script>
+<script src="/sv2/third/codemirror/mode/yaml/yaml.js"></script>
+
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/eclipse.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/blackboard.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/material.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/material-darker.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/xq-dark.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/cobalt.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/chrome-devtools.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/github.css" />
+<link rel="stylesheet" href="/sv2/third/codemirror/theme/classic-modified.css" />
+
+
+<style>
+    .cgcode_layout{
+        height: 94vh;
+    }
+</style>
+
+
+<div id="cgcode_app">
+        <div id="cgcode_home" class="cgcode_homewrapper">
+            <div class="cgcode_layout">
+                <div class="cgcode_main">
+                    <div class="cgcode_content">
+                        <div style="display: flex; flex-direction: row;">
+                            <div id="cgcode_LeftContainer" class="cgcode_LeftContainer" style="overflow: hidden; flex: 1 0 0;">
+                                <div class="cgcode_side-tools" style="position: relative;">
+                                    <div class="cgcode_wrapper">
+                                        <div class="cgcode_TabView" id="cgcode_question-detail-main-tabs">
+                                            
+                                                    <nav class="navbar navbar-expand-lg navbar-light bg-light my-0 py-0">
+                                                        
+                                                        <a class="navbar-brand back-style" href="index.jsp?assignID=800#An_Program" title="返回编程题列表">
+                                                            <i class="fas fa-arrow-alt-circle-left"></i> 返回
+                                                        </a>
+                                                        
+                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                                          <span class="navbar-toggler-icon"></span>
+                                                        </button>
+                                                        <div class="collapse navbar-collapse" id="navbarNav">
+                                                          <ul class="navbar-nav btn-style">
+                                                               
+                                                           <li class="nav-item dropdown">
+                                                                <a class="nav-link dropdown-toggle select-style" href="#" id="prolistDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                  题目列表
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="prolistDropdown">
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=1&courseID=52&assignID=800&libCenter=false">
+                                                                        1. 部分A+B
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=2&courseID=52&assignID=800&libCenter=false">
+                                                                        2. 数字统计
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=3&courseID=52&assignID=800&libCenter=false">
+                                                                        3. A除以B
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=4&courseID=52&assignID=800&libCenter=false">
+                                                                        4. 公交系统
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=5&courseID=52&assignID=800&libCenter=false">
+                                                                        5. 成绩大排队
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=6&courseID=52&assignID=800&libCenter=false">
+                                                                        6. 字符串数字置换
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=7&courseID=52&assignID=800&libCenter=false">
+                                                                        7. 写出来吧
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=8&courseID=52&assignID=800&libCenter=false">
+                                                                        8. 到底买不买
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=9&courseID=52&assignID=800&libCenter=false">
+                                                                        9. 挖掘机技术哪家强
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=10&courseID=52&assignID=800&libCenter=false">
+                                                                        10. 多项式加法
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=11&courseID=52&assignID=800&libCenter=false">
+                                                                        11. 数码管
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=12&courseID=52&assignID=800&libCenter=false">
+                                                                        12. Maya历法
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=13&courseID=52&assignID=800&libCenter=false">
+                                                                        13. 导弹防御系统
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=14&courseID=52&assignID=800&libCenter=false">
+                                                                        14. 魔咒词典
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=15&courseID=52&assignID=800&libCenter=false">
+                                                                        15. 打牌
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=16&courseID=52&assignID=800&libCenter=false">
+                                                                        16. 最大报销额
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=17&courseID=52&assignID=800&libCenter=false">
+                                                                        17. 带通配符的数
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=18&courseID=52&assignID=800&libCenter=false">
+                                                                        18. 愚人节的礼物
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=19&courseID=52&assignID=800&libCenter=false">
+                                                                        19. ab串
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=20&courseID=52&assignID=800&libCenter=false">
+                                                                        20. 占座位
+                                                                    </a>
+                                                                
+                                                                
+                                                                    <a class="dropdown-item" href="programList.jsp?proNum=21&courseID=52&assignID=800&libCenter=false">
+                                                                        21. Web导航
+                                                                    </a>
+                                                                
+                                                                  
+                                                                  
+                                                                </div>
+                                                            </li>
+                                                            
+                                                            <li class="nav-item">
+                                                                <a class="nav-link next-style" href="programList.jsp?proNum=18&courseID=52&assignID=800&libCenter=false" title="前一道">
+                                                                    <i class="fas fa-angle-left"></i> 前一道题
+                                                                </a>
+                                                            </li>
+                                                            
+                                                            
+                                                            <li class="nav-item">
+                                                                <a class="nav-link next-style" href="programList.jsp?proNum=20&courseID=52&assignID=800&libCenter=false" aria-label="Next" title="下一道">
+                                                                    下一道题 <i class="fas fa-angle-right"></i>
+                                                                </a>
+                                                            </li>
+                                                             
+                                                             
+                                                          </ul>
+                                                        </div>
+                                                      </nav>
+                                               
+                                            <div id="cgcode_description-content" class="cgcode_show_content">
+                                                <div class="cgcode_description__2b0C">
+                                                    <div class="cgcode_css-m6wrkg-Container" style="margin: 16px 0 0;">                                                        
+                                                        <h4 class="cgcode_css-tt3ivf-Title">
+                                                            19. ab串
+                                                        </h4>                                                        
+                                                    </div>
+                                                    <div class="cgcode_content__1Y2H">
+                                                        <div class="cgcode_notranslate">
+                                                            <p>【问题描述】</p><p>&nbsp; &nbsp; &nbsp; &nbsp;给定一个由字符&#39;a&#39;和字符&#39;b&#39;组成的字符串，可以删除若干字符，使得剩下来的字符串满足前后段为a，中间段为b（aaa....aaabbbb.....bbbbaaa.....aaa）,区段可以没有字符（ba,ab,b,aa都是合法的），求最长剩下字符串的长度。</p><p>【输入形式】</p><p>&nbsp; &nbsp; &nbsp; 输入为一行一个长度不超过5000的非空字符串，字符串仅由字符&#39;a&#39;和字符&#39;b&#39;组成。<br/>【输出形式】</p><p>&nbsp; &nbsp; &nbsp; 输出为一个整数，表示符合要求的最长剩下字符串长度<br/>【样例输入1】</p><pre class="brush:cpp;toolbar:false">abba</pre><p>【样例输出1】<br/></p><pre class="brush:cpp;toolbar:false">4</pre><p style="white-space: normal;">【样例输入2】</p><pre class="brush:cpp;toolbar:false">bab</pre><p style="white-space: normal;">【样例输出2】<br/></p><pre class="brush:cpp;toolbar:false">2</pre><p>【样例说明】<br/>【评分标准】</p>    
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>      
+                                                        
+                                </div>
+                            </div>
+                            <div id="cgcode_ResizeBar" class="cgcode_ResizeBar" style="position: relative; flex: 0 0 10px;" >
+                                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: col-resize; -webkit-tap-highlight-color: transparent; user-select: none;"></div>
+                            </div>
+                            <div id="cgcode_RightContainer" class="cgcode_RightContainer" style="overflow: hidden; min-width: 320px; flex: 1 0 0;">
+                                <div class="cgcode_css-pwvbgl-CodeAreaContainer">
+                                    <div class="cgcode_css-w8jsc9-EditorContainer">
+                                       
+                                        <nav class="navbar navbar-expand-lg navbar-light bg-light my-0 py-0">
+                                            <select class="form-control-sm bg-light ml-4 cgcodemirrorlang" name="language" id="language">
+                                                
+                                                <option value="c">C</option>
+                                                
+                                                <option value="c++">C++</option>
+                                                
+                                                <option value="java">JAVA</option>
+                                                
+                                                <option value="python">PYTHON</option>
+                                                
+                                            </select>
+                                            <small class="navbar-text" id="javaTIP">
+                                                
+                                            </small>
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#codeToolSupportedContent" aria-controls="codeToolSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                              <span class="navbar-toggler-icon"></span>
+                                            </button>
+
+                                            <div class="collapse navbar-collapse" id="codeToolSupportedContent">
+                                                <ul class="navbar-nav mr-auto">
+                                                  <li class="nav-item active">
+                                                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                                                  </li>
+
+                                                </ul>
+                                                <form class="form-inline my-2 my-lg-0">
+                                                    <!--
+                                                    <a class="nav-link" href="#" title="还原初始代码框架"> <i class="fas fa-undo"></i> </a>
+                                                    -->
+                                                    <select class="form-control selectpicker cgcodemirrorFontSize" title="字体大小" data-dropdown-align-right="true">
+                                                        <option value="6px">6</option>
+                                                        <option value="8px">8</option>
+                                                        <option value="10px">10</option>
+                                                        <option value="12px">12</option>
+                                                        <option value="14px">14</option>
+                                                        <option value="16px">16</option>
+                                                        <option value="18px">18</option>
+                                                        <option value="20px">20</option>        
+                                                        <option value="22px">22</option>          
+                                                    </select>
+
+                                                    <select class="form-control selectpicker cgcodemirrortheme" title="切换编辑器主题" data-dropdown-align-right="true">
+                                                        <option value="eclipse">eclipse</option>
+                                                        <option value="blackboard">blackboard</option>
+                                                        <option value="chrome-devtools">chrome-devtools</option>
+                                                        <option value="github">github</option>
+                                                        <option value="classic-modified">classic-modified</option>
+                                                        <option value="material">material</option>
+                                                        <option value="material-darker">material-darker</option>                                                        
+                                                        <option value="material-palenight">material-palenight</option>
+                                                        <option value="colbalt">colbalt</option>
+                                                        <option value="xq-dark">xq-dark</option>
+
+                                                    </select>
+                                                </form>
+
+                                            
+                                                
+                                            </div>
+                                          </nav>
+                                        
+                                        
+                                        <div class="cgcode_css-wqlwmu-wrapperCls cgcode_editor__3zVG" id="get-width">
+                                            
+                                            <form name="uploadFORM" id="uploadFORM" method="post" target="showmessageFRAME" action="showProcessMsg.jsp" style="height: 100%; position: relative; overflow: auto">
+                                                <input type="hidden" name="doSubmit" value="true">
+                                                <input type="hidden" name="byCE" value="true">
+                                                <input type="hidden" name="wtime" value="0">
+                                                <input type="hidden" name="javaMainCLass" value="Main">
+                                                <input type="hidden" name="progLanguage" value="c">
+                                                <input type="hidden" name="problemID" value="13037">
+                                                <input type="hidden" name="assignID" value="800">
+                                                <textarea id="cgsoucecode" name="cgsoucecode" style="width: 100%;height: 100%" required></textarea>
+                                            </form>
+                                            <script>
+
+                                                var cgcodemirror = CodeMirror.fromTextArea(document.getElementById('cgsoucecode'), {
+                                                  mode: 'text/x-csrc',
+                                                  indentUnit: 4,
+                                                  indentWithTabs: true,
+                                                  smartIndent: true,
+                                                  lineNumbers: true,
+                                                  matchBrackets : true,
+                                                  autofocus: true,
+                                                  theme: "eclipse",
+                                                  extraKeys: {"Ctrl-Space": "autocomplete"}
+                                                });
+                                                
+                                                /*
+                                                cgcodemirror.on("keyup", function (cm, event) {
+                                                    if (!cm.state.completionActive && 
+                                                        event.keyCode != 13) {       
+                                                        CodeMirror.commands.autocomplete(cm, null, {completeSingle: false});
+                                                    }
+                                                }); */
+
+                                                var codemirrorHeight = (document.getElementById('uploadFORM').clientHeight);      
+
+                                                cgcodemirror.setSize("100%", codemirrorHeight - 60);
+
+                                                function cgcode_closable_click(show) {
+                                                    var closableid = document.getElementById("cgcode_closable");
+                                                    if(show=="show") {
+                                                        closableid.style.display="block";
+                                                    } else {
+                                                        if(closableid.style.display!="none"){
+                                                            closableid.style.display="none";
+                                                        }else{
+                                                            closableid.style.display="block";
+                                                        }  
+                                                    }
+                                                    var closableidHeight = closableid.clientHeight;
+                                                    var bottomSubmitHeight = (document.getElementById('bottomSubmit').clientHeight);   
+                                                    cgcodemirror.setSize("100%", codemirrorHeight - closableidHeight - bottomSubmitHeight);
+                                                }
+                                                
+                                                
+                                                
+                                                $(document).ready(function(){
+                                                    //language
+                                                    $("select.cgcodemirrorFontSize").change(function(){
+                                                        var selectedFontSize = $(this).children("option:selected").val();
+                                                        cgcodemirror.getWrapperElement().style["font-size"] = selectedFontSize;
+                                                    });
+
+                                                    $("select.cgcodemirrortheme").change(function(){
+                                                        var selectedTheme = $(this).children("option:selected").val();
+                                                         cgcodemirror.setOption("theme", selectedTheme);
+                                                    });
+
+                                                    //mode
+                                                    var cgCMLanModArray = {"c": "text/x-csrc", "clang": "text/x-csrc", "c++": "text/x-c++src", "clang++": "text/x-c++src", "java": "text/x-java", "python": "text/x-python", "nasm-32": "text/x-gas", "nasm-64": "text/x-gas", "nasm-32-libc": "text/x-gas", "nasm-64-libc": "text/x-gas", "matlab": "text/x-octave", "c#": "text/x-csharp"};
+
+                                                    $("select.cgcodemirrorlang").change(function(){
+                                                        var selectedLang = $(this).children("option:selected").val();
+                                                        //alert(cgCMLanModArray[selectedLang]);
+                                                        cgcodemirror.setOption("mode", cgCMLanModArray[selectedLang]);
+                                                        document.uploadFORM.progLanguage.value=selectedLang;
+                                                        
+                                                        if(selectedLang == "java") {
+                                                            document.getElementById("javaTIP").innerHTML="Java语言的主类名必须是<kbd>Main</kbd>，<mark>不带包名</mark>。";
+                                                        } else {
+                                                            document.getElementById("javaTIP").innerHTML="";
+                                                        }
+                                                    });
+                                                    cgcodemirror.setOption("mode", cgCMLanModArray["c"]);
+                                                });
+                                                
+                                                var cgdatenow = new Date();
+                                                var submitStartTime = cgdatenow.getTime();
+                                                function cgsrcSubmit() {
+                                                    if(cgcodemirror.getValue() == "") {
+                                                        alert("禁止提交空代码！");
+                                                        return;
+                                                    }
+                                                    var now = new Date();       
+                                                    var submitTimeSpent = Math.floor((now.getTime() - submitStartTime) / 1000);        
+                                                    submitStartTime = now.getTime();             
+                                                    document.uploadFORM.wtime.value = submitTimeSpent;   
+                                                    
+                                                    cgcode_closable_click("show");
+
+                                                    document.getElementById("Submit").disabled=true;
+                                                    document.getElementById("Submit").value="正在处理...";
+                                                    
+                                                    
+                                                    cgShowProcessLoading('showmessageFRAME');
+                                                    
+                                                    document.uploadFORM.submit();
+                                                }
+                                            </script>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                                
+                                    <div id="cgcode_closable" class="cgcode_panel__2jUF cgcode_closable__1NwJ" style="display: none;z-index: 100;">
+                                        <div class="cgcode_header__3dyn cgcode_active__1V2d cgcode_collapse__2Ayu cgcode_wrapper__3Gl0 cgcode_important__3Rip">
+                                            <div class="cgcode_header-content__15k2">
+                                                <div class="cgcode_css-11zaw7c-TabView">
+                                                    <div class="cgcode_css-nok86h-TabViewHeader">
+                                                        <div class="cgcode_css-1lexzqe-TabHeaderContainer">
+                                                            <div id="cgcode_css-itv2rl-TabHeader" class="cgcode_show_TabHeaderRow" onclick="cgcode_Row(0)">
+                                                                <div class="cgcode_css-b57l95-TabHeaderRow e16udao3">
+                                                                    <span>代码执行结果</span>
+                                                                </div>
+                                                            </div>
+                                                            <!---新增 关闭控制台-->
+                                                            <span  class="add-style-close" onclick="cgcode_closable_click()">关闭控制台</span>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div id="cgcode_css-567rnd-TabContent" class="cgcode_show_TabContentRow auto-style">
+                                                        <div class="cgcode_container__2fZN">
+                                                            <div class="cgcode_editor-container__1Iqe">
+                                                                <IFRAME id="showmessageFRAME" name="showmessageFRAME" src="showProcessMsg.jsp?problemID=13037&assignID=800" frameBorder="0" height="96%" marginHeight="0" marginWidth="0" width="100%" class="iframe-style"></IFRAME>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--
+                                                    <div id="cgcode_css-1e6v1ox-TabContent" class="cgcode_hidden_TabContentRow">
+                                                        <div class="cgcode_placeholder__3nlP">请先运行您的代码</div>
+                                                    </div>
+                                                    -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                                
+                                    <div class="cgcode_container__Kjnx bg-light" style="position: fixed;z-index: 10;bottom: 0" id="bottomSubmit">
+                                        <div class="cgcode_func__yE3F" onclick="cgcode_closable_click()">
+                                            <div class="cgcode_contribute__2g0q">
+                                                <div style="cursor: pointer">控制台</div>
+                                            </div>
+                                        </div>
+                                        <div class="cgcode_action__KaAP">
+                                            <input id="Submit" type="button" name="Submit" class="btn btn-success px-5" onclick="cgsrcSubmit()" value="提 交">     
+                                            
+                                        </div>
+                                    </div>
+                                    <script>        
+                                    //console.log($('#get-width').width())
+                                        $('#bottomSubmit').css('width', $('#get-width').width())
+                                        $('#cgcode_closable').css('width', $('#get-width').width())
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+   
+
+
+
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+<IFRAME src="/includes/stayalive.jsp"  frameBorder=0 height=0 marginHeight=0 marginWidth=0 width=0></IFRAME>
+  
+  
+
+ </body>
+</html>
