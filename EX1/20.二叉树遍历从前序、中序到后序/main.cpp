@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 
 void getpost(string preorder, string inorder)  //根据先序和中序求后序
