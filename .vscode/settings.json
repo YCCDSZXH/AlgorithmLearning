@@ -67,7 +67,8 @@
     "tuple": "cpp",
     "type_traits": "cpp",
     "typeinfo": "cpp",
-    "__bits": "cpp"
+    "__bits": "cpp",
+    "set": "cpp"
   }
   // "files.associations": {
   //   "iostream": "cpp",
