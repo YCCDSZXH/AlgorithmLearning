@@ -68,7 +68,11 @@
     "type_traits": "cpp",
     "typeinfo": "cpp",
     "__bits": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "unordered_set": "cpp",
+    "regex": "cpp"
   }
   // "files.associations": {
   //   "iostream": "cpp",
