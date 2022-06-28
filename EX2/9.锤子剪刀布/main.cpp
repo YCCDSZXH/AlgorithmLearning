@@ -20,13 +20,10 @@ int main() {
     if (tmp1 == tmp2) {
       v[0][1]++;
       v[1][1]++;
-      // cnt[0][tmp1]++;
-      // cnt[1][tmp2]++;
     } else if (m[tmp1] == tmp2) {
       v[0][0]++;
       v[1][2]++;
       cnt[0][tmp1] += 100;
-      // cnt[1][tmp2] -= 5;
     } else {
       v[0][2]++;
       v[1][0]++;
@@ -40,12 +37,7 @@ int main() {
     }
     cout << endl;
   }
-  // for(int i = 0; i < 2; i++){
-  //   for(auto it = cnt[i].begin(); it != cnt[i].end(); it++){
-  //     cout << it->first << " " << it->second << endl;
-  //   }
-  //   cout << "===" <<endl;
-  // }
+
   vector<pair<char, int>> vc[2];
   for (int i = 0; i < 2; i++) {
     for (auto it = cnt[i].begin(); it != cnt[i].end(); it++) {
