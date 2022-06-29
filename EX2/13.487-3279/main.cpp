@@ -42,7 +42,6 @@ int main() {
       } else {
         s2 += s[j];
       }
-      // if(j == 2)s2+='-';
     }
     s2.insert(s2.begin()+3,'-');
     m2[s2] += 1;
